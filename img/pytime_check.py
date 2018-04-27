@@ -45,8 +45,10 @@ def net_loop():
                 totaltrans = 0
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
+        print new_recv - recv
         recv = new_recv
         senddata = (new_send - send) / 1024
+        print new_send - send
         send = new_send
         totaltrans += int(recvdata)
         totaltrans += int(senddata)
