@@ -50,7 +50,9 @@ def net_loop():
         time.sleep(3)
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
+        recv = new_recv
         senddata = (new_send - send) / 1024
+        send = new_send
         totaltrans += int(recvdata)
         totaltrans += int(senddata)
         memw = open(memfilename,'w')
