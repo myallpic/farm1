@@ -29,19 +29,9 @@ def get_net_data():
     fd.close()
     return (float(recv), float(send))
     
-def monfirst(filename):
-    nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
-    sec = time.localtime().tm_sec
-    if nowtime == '01 00:00':
-        if sec < 10:
-            f = open(filename, 'w')
-            f.write('0')
-            f.close()           
-    
 def net_loop():
     (recv, send) = get_net_data()
     checkfile(memfilename)
-    monfirst(memfilename)
     lasttransdaraopen = open(memfilename,'r')
     lasttransdata = lasttransdaraopen.readline()
     lasttransdaraopen.close()
