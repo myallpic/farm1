@@ -55,7 +55,9 @@ def net_loop():
         print nowtime
         print sec
         if nowtime == '27 15:32':
+            print 'nowtime true'
             if sec < 10:
+                print 'sec true'
                 totaltrans = 0
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
