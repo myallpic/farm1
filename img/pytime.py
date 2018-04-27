@@ -32,6 +32,8 @@ def get_net_data():
 def monfirst(filename):
     nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
     sec = time.localtime().tm_sec
+    print nowtime
+    print sec
     if nowtime == '27 15:16':
         if sec < 10:
             f = open(filename, 'w')
