@@ -54,7 +54,8 @@ def net_loop():
         sec = time.localtime().tm_sec
         print nowtime
         print sec
-        if nowtime == '27 15:37':
+        print nowtime
+        if nowtime == '27 15:43':
             print 'nowtime true'
             if sec < 10:
                 print 'sec true'
