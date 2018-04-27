@@ -50,7 +50,13 @@ def net_loop():
     totaltrans = int(lasttransdata) or 0
     while True:
         time.sleep(3)
-        monfirst(memfilename)
+        nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
+        sec = time.localtime().tm_sec
+        print nowtime
+        print sec
+        if nowtime == '27 15:32':
+            if sec < 10:
+                totaltrans = 0
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
         recv = new_recv
