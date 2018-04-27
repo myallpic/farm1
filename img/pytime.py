@@ -32,9 +32,7 @@ def get_net_data():
 def monfirst(filename):
     nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
     sec = time.localtime().tm_sec
-    print nowtime
-    print sec
-    if nowtime == '27 15:23':
+    if nowtime == '01 00:00':
         if sec < 10:
             f = open(filename, 'w')
             f.write('0')
@@ -52,10 +50,8 @@ def net_loop():
         time.sleep(3)
         nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
         sec = time.localtime().tm_sec
-        if nowtime == '27 15:47':
-            print 'nowtime true'
+        if nowtime == '27 15:53':
             if sec < 10:
-                print 'sec true'
                 totaltrans = 0
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
