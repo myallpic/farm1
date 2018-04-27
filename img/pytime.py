@@ -34,7 +34,7 @@ def monfirst(filename):
     sec = time.localtime().tm_sec
     print nowtime
     print sec
-    if nowtime == '27 15:16':
+    if nowtime == '27 15:23':
         if sec < 10:
             f = open(filename, 'w')
             f.write('0')
