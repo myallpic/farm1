@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding=utf-8
 import sys,re,time,os
-maxdata = 1073741824 #单位B
+maxdata = 1073741824 #单位Byte
 memfilename = '/root/newnetcardtransdata.txt'
 netcard = '/proc/net/dev'
 def checkfile(filename):
@@ -40,22 +40,19 @@ def net_loop():
         time.sleep(3)
         nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
         sec = time.localtime().tm_sec
-        if nowtime == '27 15:53':
+        if nowtime == '01 00:00':
             if sec < 10:
                 totaltrans = 0
         (new_recv, new_send) = get_net_data()
         recvdata = new_recv - recv
-        print recvdata
         recv = new_recv
         senddata = new_send - send
-        print senddata
         send = new_send
         totaltrans += int(recvdata)
         totaltrans += int(senddata)
         memw = open(memfilename,'w')
         memw.write(str(totaltrans))
         memw.close()
-        print totaltrans
         if totaltrans >= maxdata:
             os.system('rm -f /root/newnetcardtransdata.txt && init 0')
 if __name__ == "__main__":
