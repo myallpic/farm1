@@ -52,10 +52,7 @@ def net_loop():
         time.sleep(3)
         nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
         sec = time.localtime().tm_sec
-        print nowtime
-        print sec
-        print nowtime
-        if nowtime == '27 15:43':
+        if nowtime == '27 15:47':
             print 'nowtime true'
             if sec < 10:
                 print 'sec true'
