@@ -30,9 +30,9 @@ def get_net_data():
     return (float(recv), float(send))
     
 def monfirst(filename):
-    nowtime = time.strftime('%m-%d %H:%M',time.localtime(time.time()))
+    nowtime = time.strftime('%d %H:%M',time.localtime(time.time()))
     sec = time.localtime().tm_sec
-    if nowtime == '01-01 00:00':
+    if nowtime == '27 00:00':
         if sec < 10:
             f = open(filename, 'w')
             f.write('0')
@@ -48,6 +48,7 @@ def net_loop():
     totaltrans = int(lasttransdata) or 0
     while True:
         time.sleep(3)
+        monfirst(memfilename)
         (new_recv, new_send) = get_net_data()
         recvdata = (new_recv - recv) / 1024
         recv = new_recv
